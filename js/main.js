@@ -27,14 +27,24 @@ for (let i = 0; i < teamMembersArrays.length; i++) {
     addMember(m[0], m[1], m[2])
 }
 
-// cicla l'array di oggetti e stampa ogni proprietà
+// cicla l'array di oggetti
 for (let i = 0; i < teamMembersObjects.length; i++) {
     const e = teamMembersObjects[i];
+    // crea una card per ogni oggetto 
     card = document.createElement("div");
-    card.classList.add("member-card", "card");
+    card.classList.add("card", "col-3", "p-3");
+    // cicla le proprietà dell'oggetto
     for (const key in e) {
-        div = document.createElement("div")
-        div.innerHTML = (e[key]);
+        // crea un div per ogni proprietà
+        div = document.createElement("div");
+        if (key == "picture") {
+            image = document.createElement("img");
+            image.src = "img/" + e[key];
+            image.classList.add("img-fluid")
+            div.appendChild(image);
+        } else {
+            div.innerHTML = (e[key]);
+        }
         card.appendChild(div) 
     }
     cont.appendChild(card)
