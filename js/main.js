@@ -1,3 +1,5 @@
+cont = document.getElementById("container");
+
 const teamMembersArrays = [
     ["Wayne Barnett", "Founder & CEO",	"wayne-barnett-founder-ceo.jpg"], 
     ["Angela Caroll", "Chief Editor",	"angela-caroll-chief-editor.jpg"],
@@ -26,9 +28,14 @@ for (let i = 0; i < teamMembersArrays.length; i++) {
 }
 
 // cicla l'array di oggetti e stampa ogni proprietà
-teamMembersObjects.forEach(e => {
+for (let i = 0; i < teamMembersObjects.length; i++) {
+    const e = teamMembersObjects[i];
+    card = document.createElement("div");
+    card.classList.add("member-card", "card");
     for (const key in e) {
-        console.log(e[key]);
+        div = document.createElement("div")
+        div.innerHTML = (e[key]);
+        card.appendChild(div) 
     }
-});
-
+    cont.appendChild(card)
+};
